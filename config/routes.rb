@@ -1,4 +1,9 @@
 Birdvision::Application.routes.draw do
+
+  #resources :items
+  get 'items/import' => 'items#bulk_import_form'
+  post 'items/import' => 'items#bulk_create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
