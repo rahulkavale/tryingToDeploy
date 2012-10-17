@@ -9,3 +9,5 @@ Item.create!(:title => 'Mac book air', :description => 'The lightweight laptop f
 Item.create!(:title => 'Dell inspiron', :description => 'The dell laptop', :price => 30000)
 Item.create!(:title => 'Bat', :description => 'good bat', :price => 1500)
 
+User.delete_all
+User.create!(:email => "test@test.com", :password => "password", :password_confirmation => "password")
