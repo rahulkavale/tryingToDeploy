@@ -1,4 +1,4 @@
-require "rspec"
+require 'fabrication'
 require "spec_helper"
 
 describe ItemsController do
@@ -23,6 +23,15 @@ describe ItemsController do
   it "bulk creation should fail for non csv files" do
     post :bulk_create, "csv" => Rack::Test::UploadedFile.new("spec/fixtures/favicon.ico", "text/csv")
     response.body.should == "Failed uploading, Invalid Format"
+  end
+
+  context "browse" do
+     it "should show the items" do
+       pending
+       Fabricate(:item)
+       get :index
+       assigns[:items].should == :item
+     end
   end
 end
 
