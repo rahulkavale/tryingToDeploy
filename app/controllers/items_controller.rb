@@ -27,4 +27,8 @@ class ItemsController < ApplicationController
     render :text => "Success"
   end
 
+  def index
+    @items = Item.all
+    render :index
+  end
 end

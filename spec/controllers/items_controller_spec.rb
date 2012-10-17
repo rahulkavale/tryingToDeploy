@@ -2,6 +2,13 @@ require 'fabrication'
 require "spec_helper"
 
 describe ItemsController do
+  context "routes" do
+    it "should route requests correctly" do
+      {:get => '/items/index'}.should route_to('items#index')
+      {:get => '/items/import'}.should route_to('items#import')
+      {:post => '/items/import'}.should route_to('items#bulk_create')
+    end
+  end
 
   context "Bulk create items from CSV file upload" do
     it "GET 'show_import_form' should be successful" do
@@ -37,10 +44,10 @@ describe ItemsController do
 
   context "browse" do
     it "should show the items" do
-      pending
-      Fabricate(:item)
+      item = Fabricate(:item)
       get :index
-      assigns[:items].should == :item
+      assigns[:items].should == [item]
+      response.should be_success
     end
   end
 end
