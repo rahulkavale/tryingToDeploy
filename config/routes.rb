@@ -1,5 +1,7 @@
 Birdvision::Application.routes.draw do
 
+  devise_for :users
+
   #resources :items
   get 'items/import' => 'items#import', :as => :items_import
   get 'items/index' => 'items#index'
