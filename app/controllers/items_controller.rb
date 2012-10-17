@@ -31,4 +31,8 @@ class ItemsController < ApplicationController
     @items = Item.all
     render :index
   end
+
+  def show
+
+  end
 end

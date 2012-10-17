@@ -50,5 +50,13 @@ describe ItemsController do
       response.should be_success
     end
   end
+
+  context "show" do
+     it "GET 'show_import_form' should be successful" do
+       get :show , :title => 1
+       response.should be_success
+       response.should render_template(:show)
+     end
+  end
 end
 
