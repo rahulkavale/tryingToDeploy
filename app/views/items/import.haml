@@ -1,0 +1,8 @@
+%p#notice= notice
+= form_tag 'import', :multipart =>true do
+   #import-csv
+      = label_tag "Select a csv file to upload"
+      = file_field_tag :csv
+
+   #submit
+      = submit_tag "start Upload", :disable_with => 'Uploading...'
