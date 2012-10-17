@@ -6,7 +6,7 @@ Birdvision::Application.routes.draw do
   get 'items/import' => 'items#import', :as => :items_import
   get 'items/index' => 'items#index'
   post 'items/import' => 'items#bulk_create'
-  get 'items/:title' => 'items#show'
+  get 'items/:slug' => 'items#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -33,6 +33,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-
+    begin
+      @item = Item.find_by_slug!(params[:slug])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to "/404.html"
+    end
   end
 end
