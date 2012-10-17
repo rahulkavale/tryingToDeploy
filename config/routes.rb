@@ -1,7 +1,7 @@
 Birdvision::Application.routes.draw do
 
   #resources :items
-  get 'items/import' => 'items#bulk_import_form'
+  get 'items/import' => 'items#import', :as => :items_import
   post 'items/import' => 'items#bulk_create'
 
   # The priority is based upon order of creation:
@@ -16,7 +16,7 @@ Birdvision::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #   resources :products                                                                                                                                                                         `
 
   # Sample resource route with options:
   #   resources :products do
