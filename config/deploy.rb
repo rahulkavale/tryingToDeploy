@@ -35,6 +35,6 @@ set :bundle_without,  [:development, :test]
  desc "Populates the Production Database"
  task :seed do
      puts "\n\n=== Populating the Production Database! ===\n\n"
-     run "cd #{current_path}; rake db:seed RAILS_ENV=production"
+     run "cd #{current_path}; rake db:seed RAILS_ENV=#{stage}"
    end
  end

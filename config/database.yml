@@ -29,7 +29,6 @@ qa:
   database: birdvision
   username: root
   password: p@ssw0rd
-  host: 192.168.35.2
   encoding: utf8
   timeout: 5000
 
