@@ -18,10 +18,19 @@ test: &test
   pool: 5
   timeout: 5000
 
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+#production:
+#  adapter:mysql 
+#  database: db/production.sqlite3
+#  pool: 5
+#  timeout: 5000
+
+qa:
+  adapter: mysql2
+  database: birdvision
+  username: root
+  password: p@ssw0rd
+  host: 192.168.35.2
+  encoding: utf8
   timeout: 5000
 
 cucumber:
