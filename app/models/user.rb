@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_one :cart
   devise :database_authenticatable,
          :recoverable, :trackable, :validatable
 
