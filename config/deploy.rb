@@ -2,7 +2,7 @@ require 'capistrano/ext/multistage'
 require "bundler/capistrano"
 
 set :application, "birdvision"
-set :repository,  "git@github.com:bvcteam/birdvision.git"
+set :repository, "git@github.com:rahulkavale/tryingToDeploy.git" # "git@github.com:bvcteam/birdvision.git"
 set :stages, %w(production qa development)
 set :default_stage, "development"
 
@@ -14,6 +14,11 @@ set :scm, :git
 set :use_sudo, false
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
+
+set :bundle_gemfile,  "Gemfile"
+set :bundle_dir,      File.join(fetch(:shared_path), 'bundle')
+set :bundle_flags,    "--deployment --quiet"
+set :bundle_without,  [:development, :test]
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
@@ -26,5 +31,10 @@ default_run_options[:pty] = true
    task :stop do ; end
    task :restart, :roles => :app, :except => { :no_release => true } do
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+   end
+ desc "Populates the Production Database"
+ task :seed do
+     puts "\n\n=== Populating the Production Database! ===\n\n"
+     run "cd #{current_path}; rake db:seed RAILS_ENV=production"
    end
  end
