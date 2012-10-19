@@ -26,6 +26,20 @@ set :bundle_without,  [:development, :test]
 # these http://github.com/rails/irs_process_scripts
 
 # If you are using Passenger mod_rails uncomment this:
+namespace :gems do
+
+  desc "Installs any 'not-yet-installed' gems on the production server or a single gem when the gem= is specified."
+  task :install do
+    if ENV['gem']
+      puts "\n\n=== Installing #{ENV['gem']}! ===\n\n"
+      run "gem install #{ENV['gem']}"
+    else
+      puts "\n\n=== Installing required RubyGems! ===\n\n"
+      run "cd #{current_path}; rake gems:install RAILS_ENV=#{stage}"
+    end
+  end
+
+end
  namespace :deploy do
    task :start do ; end
    task :stop do ; end

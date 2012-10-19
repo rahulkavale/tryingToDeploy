@@ -74,6 +74,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fabrication (2.4.0)
+    fastthread (1.0.7)
     ffi (1.1.5)
     gherkin (2.11.5)
       json (>= 1.4.6)
@@ -190,6 +191,7 @@ DEPENDENCIES
   database_cleaner
   devise
   fabrication
+  fastthread
   haml
   jquery-rails
   mysql2
